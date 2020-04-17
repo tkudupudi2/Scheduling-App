@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> Sign in</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{form.username.label}}<br>
+        {{form.username(size=32)}}
+
+        <br>
+        {{form.password.label}}<br>
+        {{form.password(size=32)}}
+
+        <br>
+        {{form.remember_me()}}
+        {{form.remember_me.label}}
+
+        <br>
+        {{form.submit()}}
+
+        <p> New User? <a href="/register"> Click to register!</a> </p>
+
+
+    </p>
+</form>
+{% endblock %}
