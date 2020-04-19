@@ -1,9 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1> hello!! {{name}} </h1>
-{%for n in names%}
-    <h1> {{ n }}</h1>
-{% endfor %}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css-layouts.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+	<header>
+		</a>
+		<nav class="site-nav">
+			<ul>
+				<li><a href="/login">Login</a></li>
+				<li><a href="/register">Create Account</a></li>
+			</ul>
+		</nav>
+    </header>
+</body>
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to the Scheduling App</h1>
+        </div>
+    </section>
+</main>
 {% endblock %}
 
