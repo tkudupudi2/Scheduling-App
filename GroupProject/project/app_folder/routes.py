@@ -4,10 +4,9 @@ from flask import render_template, redirect
 from app_folder.forms import LoginForm
 from .forms import RegistrationForm
 from .models import User
-from flask import flash
-from flask import logout_user, url_for, login
+from flask import flash, url_for
+from flask_login import logout_user, login_user, confirm_login
 
-@app.route('/index')
 @app.route('/')
 def home():
     myname = 'carlos' 
@@ -35,14 +34,14 @@ def reg():
         return redirect('/')
     return render_template('register.html', form=form)
 
-@app.route('/logout', methods=['GET','POST']) #CPI
+@app.route('/logout') #CPI
 def logout():
     if not confirm_login():
         flash('You are currently not logged in!')
-        return redirect(url_for('/'))
+        return redirect('/')
     if logout_user():
         flash('You have successfully logged out!')
-        return redirect(url_for('/'))
+        return redirect('/')
     abort(404)
     
 @app.errorhandler(404) #CPI
