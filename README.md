@@ -2,7 +2,7 @@
 An app made for scheduling appointments/events.
 
 ## Application requirements
-Have **Flask,Python3**and**SqlLite** installed.
+Have **Flask,Python3** and **SqlLite** installed.
 ## How to run
 - Navigate to the project folder using the terminal.
 - Run : python run.py
