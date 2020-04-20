@@ -1,4 +1,4 @@
-from app_folder import db
+from app_folder import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model):
@@ -9,3 +9,7 @@ class User(db.Model):
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int (id))

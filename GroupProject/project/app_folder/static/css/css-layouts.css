@@ -1,13 +1,13 @@
 @charset "UTF-8";
 /* CSS Document */
 
-html,
+/* html,
 html * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	scroll-behavior: smooth;
-}
+} */
 h1 {
 	color: black;
 	text-transform: uppercase;
