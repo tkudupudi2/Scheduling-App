@@ -53,5 +53,9 @@ def logout():
        pass
     return render_template('logout.html', title ='Login', form=form)
 
+@app.route("/guest", methods=['GET'])
+def guest():
+    return render_template('guest.html', title='Guest')
+
 
 
