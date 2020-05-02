@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Register</h1>
-<form action="" method="post">
+<div align = 'center'>
+<h1>Create an Account</h1>
+<form action="/login" method="post">
     {{ form.hidden_tag() }}
 
     <p>
@@ -28,4 +29,5 @@
     <p>{{ form.submit() }} </p>
 
 </form>
+</div>
 {% endblock %}

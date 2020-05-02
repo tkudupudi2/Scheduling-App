@@ -1,16 +1,14 @@
 {% extends "base.html" %}
-
 {% block content %}
-<h1> Log out</h1>
-
-
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul>
-    {% for msg in messages %}
-        <li> {{msg}} </li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
+    
+    <div align = "center">  
+        <h1> You have successfully Signed In</h1>
+        <!-- "action" takes you to the Login page after you click on Logout buton -->
+    	<form action="/login" method="post" novalidate>
+            {{ form.hidden_tag() }}
+        
+            <p> {{ form.submit() }}</p>
+        </form>
+    </div>
+    
 {% endblock %}

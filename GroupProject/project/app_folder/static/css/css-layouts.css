@@ -19,7 +19,8 @@ header {
 	width: 100%;
 	top: 0px;
 	padding: 0.5em;
-	position: fixed;
+	position: relative;
+
 }
 .site-nav {
 	position: relative;

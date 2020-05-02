@@ -13,43 +13,43 @@ def home():
     mylist = ['carlos', 'jane', 'alex']
     return render_template('index.html', name=myname, names=mylist)
 
-@app.route('/login', methods=['GET','POST'])
-def login():
-    form_curr = LoginForm()
-    if form_curr.validate_on_submit():
-        flash('Hello you logged in! Welcome to your schedule')
-        login_user(current_user) # CPI
-    return render_template('login.html', form=form_curr)
-    
-
 @app.route('/register', methods=['GET', 'POST'])
-def reg():
+def register():
     form = RegistrationForm()
-
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
-        user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        return redirect('/')
-    return render_template('register.html', form=form)
+        pass
+    return render_template('register.html', title ='Register', form=form)
 
-@app.route('/logout') #CPI
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+       pass
+    return render_template('login.html', title ='Login', form=form)
+
+# route for logout
+#@app.route('/logout') #CPI
+#def logout():
+#    if not confirm_login():
+#        flash('You are currently not logged in!')
+#        return redirect('/')
+#    if logout_user():
+#        flash('You have successfully logged out!')
+#        return redirect('/')
+#    abort(404)
+  
+#@app.errorhandler(404) #CPI
+#def page_not_found(error):
+#    return render_template('page_not_found.html'), 404
+#
+#app.register_error_handler(404, page_not_found)
+
+@app.route('/logout', methods=['GET', 'POST'])
 def logout():
-    if not confirm_login():
-        flash('You are currently not logged in!')
-        return redirect('/')
-    if logout_user():
-        flash('You have successfully logged out!')
-        return redirect('/')
-    abort(404)
-    
-@app.errorhandler(404) #CPI
-def page_not_found(error):
-    return render_template('page_not_found.html'), 404
-
-app.register_error_handler(404, page_not_found)
-
+    form = LogoutForm()
+    if form.validate_on_submit():
+       pass
+    return render_template('logout.html', title ='Login', form=form)
 
 
 
