@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 #from app_folder.models import User
 
@@ -18,3 +18,8 @@ class RegistrationForm(FlaskForm):
 
 class LogoutForm(FlaskForm):
     submit = SubmitField('Logout')
+
+class SettingsForm(FlaskForm):
+    meetingLength = SelectField('Meeting Length: ', choices=[('60', '60 minutes', '30', '30 minutes', '15', '15 minutes')])
+    emailConfirmation = BooleanField("Confirm Email")
+    submit = SubmitField('Update Settings')
