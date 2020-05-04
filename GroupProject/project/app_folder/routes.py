@@ -88,3 +88,6 @@ def deleteAccount():
 
 
 
+@app.route('/<userName>', methods=['GET', 'POST'])
+def userPage(userName) :
+    return render_template('user.html', username = userName)  
