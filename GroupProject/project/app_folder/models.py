@@ -18,6 +18,6 @@ class User(db.Model, UserMixin):
 def load_user(id):
     return User.query.get(int (id))
 
- def get_name(name) :
+def get_name(name) :
     user = user.query.filter_by(username = name).first_or_404(description = 'There is no data associated with {}'.format(username))
     return render_template('show_user.html', user = user)
