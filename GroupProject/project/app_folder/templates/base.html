@@ -10,11 +10,16 @@
     <meta charset="UTF-8">
     </head>
 
-     <body>
-
-         
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <body>
+    
+      <div class="btn-group">
+        <a href="/" button type="button" class="btn btn-primary">Home</a>
+        <a href="{{ url_for('guest') }}"button type="button" class="btn btn-primary">Guest</a>
+        <a href="{{ url_for('settings') }}"button type="button" class="btn btn-primary">Settings</a>
+        <a href="{{ url_for('logout') }}"button type="button" class="btn btn-primary">Logout</a>
+				<a href="{{ url_for('login') }}"button type="button" class="btn btn-primary">Login</a>
+				<a href="{{ url_for('register') }}"button type="button" class="btn btn-primary">Create Account</a>
+    <!-- <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">Calendar</a>
       </div>
@@ -24,9 +29,7 @@
         <li><a href="/GroupProject/project/app_folder/templates/settings.html">Settings</a></li>
       </ul>
     </div>
-  </nav>
-
- 
+  </nav> -->
         {% block content %} {% endblock %}
     </body>
 </html>
