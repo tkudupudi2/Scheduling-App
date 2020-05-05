@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div align = "center">  
+        <h1> Create an Account </h1>
+        <form action="/register" method="POST" novalidate>
+            {{ form.hidden_tag() }}
+
+            <p>
+                {{ form.username.label }}        
+                {{ form.username(size = 32) }}   
+            </p>
+
+            <p>
+                {{ form.email.label }}        
+                {{ form.email(size = 32) }}   
+            </p>
+
+            <p>
+                {{ form.password.label() }}
+                {{ form.password(size = 32) }}
+            </p>
+
+            <p>
+                {{ form.confirm_password.label()}}
+                {{ form.confirm_password(size = 32) }}
+            </p>
+        
+            <p> {{ form.submit() }}</p>
+            <p>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>
+                                {{ message }}
+                            </p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </p>
+        </form>
+    </div>
+
+{% endblock %}
