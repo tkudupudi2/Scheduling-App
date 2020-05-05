@@ -16,12 +16,19 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Calendar</a>
+        <a class="navbar-brand" href="/">Calendar</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="/GroupProject/project/app_folder/templates/guest.html">Guest</a></li>
-        <li><a href="/GroupProject/project/app_folder/templates/settings.html">Settings</a></li>
+        <li> <a href="/"> Home </a></li>
+			{% if current_user.is_authenticated %}
+				<li> <a href="{{ url_for('meetings') }}"> Meetings </a></li>
+				<li> <a href="{{ url_for('settings') }}"> Settings </a></li>
+				<li> <a href="{{ url_for('logout') }}"> Logout </a></li>
+			{% else %}
+				<li> <a href="{{ url_for('login') }}"> Login </a></li>
+				<li> <a href="{{ url_for('register') }}"> Register </a></li>
+				<li> <a href="/guest"> Guest </a></li>
+			{% endif %}
       </ul>
     </div>
   </nav>

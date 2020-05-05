@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class = 'userPage'>
-    <title>{{userName}}</title>
-    <h1>Welcome to {{userName}}'s page!</h1>
+    <title>{{username}}</title>
+    <h1>Welcome to {{username}}'s page!</h1>
 
 
 
@@ -22,7 +22,7 @@
 
 
 
-{% if (current_user.is_authenticated) and (current_user.username == userName) %}
+{% if (current_user.is_authenticated) and (current_user.username == username) %}
 
     {% for post in posts %}
     <div>
@@ -38,7 +38,7 @@
 
 {% endif /%}
 
-{% if (not current_user.is_authenticated) or (current_user.username != userName)%}
+{% if (not current_user.is_authenticated) or (current_user.username != username)%}
 
     <form action ="/action_page.php" >
         <label for = "meeting"> Enter a date to meet<label>
