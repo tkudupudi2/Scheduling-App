@@ -2,13 +2,12 @@
 {% block content %}
 
     <div align='center'>
-        <h1>Schedule an Appointment</h1>
-        <form action='/{{username}}' method='POST'  novalidate>
-            {{ form.hidden_tag() }}
-            {{form.date}}
-            {{form.submit()}}
-        </form>
-            <p>
+        <h1>See and schedule an appointment</h1>
+       
+            <title>Search Results for appointments</title>
+            {{ table }}
+    
+            <!-- <p>
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
@@ -18,7 +17,7 @@
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
-            </p>
+            </p> -->
     </div>
 
 
