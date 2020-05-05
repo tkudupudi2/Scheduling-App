@@ -3,32 +3,36 @@
 
 	<div align = "center">  
         <h1> Settings </h1>	
-        <form action="/deleteaccount" method="POST" novalidate>
+        <form action="" method="POST" novalidate>
             {{ delete_account_form.hidden_tag() }}
             <p>
                 {{ delete_account_form.submit() }}
             </p>
         </form>
-        <form action="/settings" method="POST" novalidate>
-            {{settings_form.hidden_tag()}}
+        
+        <form action="" method="POST" novalidate>
+           
             <p>
                 {{settings_form.availability_start.label()}}
                 {{settings_form.availability_start}}
             </p>
-
+            
             <p>
                 {{settings_form.availability_end.label()}}
                 {{settings_form.availability_end}}
             </p>
 
             <p>
-                Time Duration: {{settings_form.length}}
+                Time Duration:
+                {{settings_form.length}}
             </p>
 
             <p>
                 Email Confirmation:
                 {{ settings_form.email_confirmation() }}
                 {{ settings_form.email_confirmation.label }}
+                {{ settings_form.email_rejection() }}
+                {{ settings_form.email_rejection.label }}
             </p>
            
             <p>
