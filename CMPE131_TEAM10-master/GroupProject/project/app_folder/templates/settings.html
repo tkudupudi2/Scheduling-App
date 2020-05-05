@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<div align = "center">  
+        <h1> Settings </h1>	
+        <form action="/deleteaccount" method="POST" novalidate>
+            {{ delete_account_form.hidden_tag() }}
+            <p>
+                {{ delete_account_form.submit() }}
+            </p>
+        </form>
+        <form action="/settings" method="POST" novalidate>
+            {{settings_form.hidden_tag()}}
+            <p>
+                {{settings_form.availability_start.label()}}
+                {{settings_form.availability_start}}
+            </p>
+
+            <p>
+                {{settings_form.availability_end.label()}}
+                {{settings_form.availability_end}}
+            </p>
+
+            <p>
+                Time Duration: {{settings_form.length}}
+            </p>
+
+            <p>
+                Email Confirmation:
+                {{ settings_form.email_confirmation() }}
+                {{ settings_form.email_confirmation.label }}
+            </p>
+           
+            <p>
+                 {{settings_form.submit()}}
+            </p>
+
+            <p>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>
+                                {{ message }}
+                            </p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </p>
+
+         </form>
+    </div>
+
+{% endblock %}
