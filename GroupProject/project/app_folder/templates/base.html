@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Scheduling App</title>
+         <!-- Link to css file-->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/css-layouts.css')}}">
+    <!-- Bootsrtap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    </head>
+
+    <body>
+    
+      <div class="btn-group">
+        <a href="/" button type="button" class="btn btn-primary">Home</a>
+        <a href="{{ url_for('guest') }}"button type="button" class="btn btn-primary">Guest</a>
+        <a href="{{ url_for('settings') }}"button type="button" class="btn btn-primary">Settings</a>
+        <a href="{{ url_for('logout') }}"button type="button" class="btn btn-primary">Logout</a>
+				<a href="{{ url_for('login') }}"button type="button" class="btn btn-primary">Login</a>
+				<a href="{{ url_for('register') }}"button type="button" class="btn btn-primary">Create Account</a>
+    <!-- <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Calendar</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/GroupProject/project/app_folder/templates/guest.html">Guest</a></li>
+        <li><a href="/GroupProject/project/app_folder/templates/settings.html">Settings</a></li>
+      </ul>
+    </div>
+  </nav> -->
+        {% block content %} {% endblock %}
+    </body>
+</html>
