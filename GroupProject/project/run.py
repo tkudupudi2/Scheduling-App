@@ -1,2 +1,5 @@
-from app_folder import app
-app.run(debug=True)
+from app import apps
+
+if __name__ == '__main__':
+    apps.run(debug=True)
+    
