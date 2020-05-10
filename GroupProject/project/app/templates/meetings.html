@@ -3,7 +3,7 @@
 <body>
    
     <div align = "center">  
-        <h1> You have successfully Signed In</h1>
+        <h1> Nice! You have Successfully Signed In.</h1>
 	</div>
 
 	<h2> Scheduled Appointments: </h2>
@@ -11,20 +11,53 @@
 	<style>
 		table, th, td {
   			border: 1px solid black;
-  			border-collapse: collapse;
+			  border-collapse: collapse;
 		}
+		@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+            h1 {
+                position: relative;
+                font-size: 40px;
+                font-family: 'Source Code Pro', monospace;
+                top: 50px;
+			}
+			h2 {
+				position: relative;
+				font-size: 30px;
+				font-family: 'Times New Roman', Times, serif;
+				right: -200px;
+				top: 80px;
+			}
+            form {
+                position: relative;
+                top: 100px;
+            }
+            td {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 20px;
+			}
+			th {
+				font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+				font-size: 20px;
+				text-align: center;
+			}
+			table {
+				text-align: center;
+				position: relative;
+				right: -200px;
+				top: 80px;
+			}
 	</style>
-	<table style='width: 100%'>
+	<table style='width: 80%'>
 		<tr>
 			<th> Date </th>
-			<th> Time </th>
-			<th> Guest Name </th>
+			<th> Booking </th>
+			<th> Guest Name(s) </th>
 			<th> Description </th>
 		</tr>
 
 		<tr>
 			<td> Sample Date </td>
-			<td> Sample Time </td>
+			<td> Sample Booking </td>
 			<td> John Doe </td>
 			<td> Class Registration </td>
 		</tr>
