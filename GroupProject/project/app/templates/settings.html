@@ -1,7 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-
-	<div align = "center">  
+<body>
+    
+	<div align = "center"> 
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+            h1 {
+                position: relative;
+                font-size: 40px;
+                font-family: 'Source Code Pro', monospace;
+                top: 50px;
+            }
+            form {
+                position: relative;
+                top: 100px;
+            }
+            p {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: medium;
+            }
+        </style> 
         <h1> Settings </h1>	
         <form action="" method="POST" novalidate>
             {{ delete_account_form.hidden_tag() }}
@@ -53,5 +71,5 @@
 
          </form>
     </div>
-
+</body>
 {% endblock %}

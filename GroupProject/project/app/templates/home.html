@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<body>
 <!DOCTYPE html>
 <head>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/css-layouts.css')}}">
@@ -10,13 +11,49 @@
     <section class="hero">
         <div class="hero-content">
             <style>
-                h1 {position: relative; top: 250px; right: -450px;}
+                @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+                h1 {
+                    border-right: solid 3px black;
+                    white-space: nowrap;
+                    overflow: hidden;    
+                    font-family: 'Source Code Pro', monospace;  
+                    font-size: 35px;
+                    color: black;
+                    margin: 0 auto;
+                    position: relative;
+                    top: 100px;
+                    }
+                h1 {
+                    animation: animated-text 4s steps(29,end) 1s 1 normal both,
+                    animated-cursor 600ms steps(29,end) infinite;
+                    }
+                @keyframes animated-text{
+                    from{width: 0;}
+                    to{width: 620px;}
+                    }
+
+                /* cursor animations */
+
+                @keyframes animated-cursor{
+                    from{border-right-color: black;}
+                    to{border-right-color: transparent;}
+                    }
+                
+                h2 {
+                    font-family: 'Source Code Pro', monospace;
+                    font-size: 25px;
+                    color: grey;
+                    position: relative;
+                    top: 120px;
+                    right: -550px;
+                }
             </style>
-            <h1>Welcome to the Scheduling App</h1>
+            <h1 class="home-title">Welcome to the Scheduling App</h1>
+            <h2>Grasp the perfect time</h2>
         </div>
     </section>
 </main>
-
+</body>
 <!--	{% for post in posts %}
 		<h1> {{ post.title }} </h1>
 		<p> By {{ post.author }} on {{ post.date_posted }} </p>
