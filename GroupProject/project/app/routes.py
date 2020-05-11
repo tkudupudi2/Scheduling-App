@@ -35,6 +35,7 @@ def register():
     Then it waits for validation from the submit button.
     """
     if current_user.is_authenticated:
+        flash("You are currently logged in")
         return redirect(url_for('login'))
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -56,6 +57,7 @@ def login():
     Then it waits for validation from the submit button.
     """
     if current_user.is_authenticated:
+        flash("User is authenticated")
         return redirect(url_for('meetings'))
     form = LoginForm()
     if form.validate_on_submit():
