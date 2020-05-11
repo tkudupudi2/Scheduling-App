@@ -2,7 +2,24 @@
 {% block content %}
 <main>
   
-    <div align = "center">  
+    <div align = "center"> 
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+            h1 {
+                position: relative;
+                font-size: 40px;
+                font-family: 'Source Code Pro', monospace;
+                top: 90px;
+            }
+            form {
+                position: relative;
+                top: 100px;
+            }
+            p {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: medium;
+            }
+        </style>  
         <h1> Sign In</h1>
     
         <form action="/login" method="POST" novalidate>
