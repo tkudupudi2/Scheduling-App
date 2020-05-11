@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <head>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/css-layouts.css')}}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <meta charset="UTF-8">
 </head>
 <main>
@@ -21,7 +23,7 @@
                     color: black;
                     margin: 0 auto;
                     position: relative;
-                    top: 100px;
+                    top: -50px;
                     }
                 h1 {
                     animation: animated-text 4s steps(29,end) 1s 1 normal both,
@@ -44,12 +46,78 @@
                     font-size: 25px;
                     color: grey;
                     position: relative;
-                    top: 120px;
-                    right: -550px;
+                    /*top: 120px;
+                    right: -430px;*/
+                    text-align: center;
                 }
+                .hero {
+                    padding: 22em 6em;
+                    background-color: yellow;
+                    position: relative;
+                    top: -214px;
+                }
+                .intro {
+                    padding: 22em 6em;
+                    background-color: tan;
+                    position: relative;
+                    top: -214px;
+                }
+                * {
+	 box-sizing: border-box;
+}
+ .item {
+	 width: 700px;
+	 height: 100px;
+	 margin: 50px auto;
+	 padding-top: 75px;
+	 background:tan;
+     position: relative;
+     top: -300px;
+}
+.description {
+	 width: 1000px;
+	 height: 300px;
+	 margin: 50px auto;
+	 padding-top: 75px;
+	 background: tan;
+     position: relative;
+     top: -300px;
+}
+
+.appdescription {
+    text-align: center;
+	 color: #fff;
+     font-size: 2em;
+    position: relative;
+    top: -70px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.aboutapp {
+    text-align: center;
+	 color: black;
+     font-size: 75px;
+    position: relative;
+    top: -70px;
+    font-family: 'Source Code Pro', monospace;
+}
+
             </style>
             <h1 class="home-title">Welcome to the Scheduling App</h1>
             <h2>Grasp the perfect time</h2>
+        </div>
+    </section>
+    <section class="intro">
+        
+        <div class="item" data-aos="fade-right">
+            <p class="aboutapp">About the App!</p>
+        </div>
+        <script>  
+            AOS.init({
+      duration: 1500,
+    })
+        </script>
+        <div class="description" data-aos="zoom-in">
+            <p class="appdescription">About Paragraph</p>
         </div>
     </section>
 </main>
