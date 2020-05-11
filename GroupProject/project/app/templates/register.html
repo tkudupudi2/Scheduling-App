@@ -1,8 +1,88 @@
 {% extends "base.html" %}
 {% block content %}
  <main>
+    <div id="bg">
+        <div id="magic-container">
+            <div id="blur-bg"></div>
+    <div class = "register", id = "text" align = "center">  
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+            h1 {
+                position: relative;
+                font-size: 40px;
+                font-family: 'Source Code Pro', monospace;
+                top: 0px;
+            }
+            form {
+                position: relative;
+                top: 30px;
+            }
+            p {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: medium;
+            }
 
-    <div align = "center">  
+#bg {
+	/*background: url(static/css/login.png);*/
+    background-image: url(static/css/Register.jpg);
+	/*width: 100%;
+	height: 100%;
+  background-repeat: no-repeat;
+  /*background-size: 1080px auto;
+  background-size: contain;*/
+  padding: 22em 6em;
+  position: relative;
+  top: -215px;
+}
+
+/*#bg {
+  /*background-position: center top;*/
+  /*padding: 70px 90px 120px 90px;
+}*/
+
+#magic-container {
+  position: relative;
+  top: -150px;
+  width: 500px;
+  right: -350px;
+}
+
+#blur-bg {
+  /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+
+  /* Pull the background 70px higher to the same place as #bg's */
+  background-position: center -70px;
+  -webkit-filter: blur(10px);
+  filter: url('/media/blur.svg#blur');
+  filter: blur(10px);
+  background-image: url(static/css/Register.jpg);
+
+}
+
+#text {
+  /* Put this on top of the blurred layer */
+  position: relative;
+  z-index: 100;
+  padding: 30px;
+  background: transparent;
+}
+
+@media (max-width: 600px ) {
+  	#bg { 
+	  	padding: 10px; 
+	}
+  	#blur-bg { 
+	  	background-position: center -10px; 
+	}
+}
+            
+        </style>
         <h1> Create an Account </h1>
         <form action="/register" method="POST" novalidate>
             {{ form.hidden_tag() }}
@@ -41,5 +121,7 @@
             </p>
         </form>
     </div>
+    </div>
+</div>
  </main>
 {% endblock %}

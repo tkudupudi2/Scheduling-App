@@ -31,7 +31,7 @@
                     }
                 @keyframes animated-text{
                     from{width: 0;}
-                    to{width: 620px;}
+                    to{width: 565px;}
                     }
 
                 /* cursor animations */
@@ -54,11 +54,17 @@
                     padding: 22em 6em;
                     background-color: yellow;
                     position: relative;
-                    top: -214px;
+                    top: -208px;
                 }
                 .intro {
-                    padding: 22em 6em;
+                    padding: 8em 6em;
                     background-color: tan;
+                    position: relative;
+                    top: -208px;
+                }
+                .us {
+                    padding: 8em 6em;
+                    background-color: lightsteelblue;
                     position: relative;
                     top: -214px;
                 }
@@ -72,22 +78,22 @@
 	 padding-top: 75px;
 	 background:tan;
      position: relative;
-     top: -300px;
+     top: -100px;
 }
 .description {
-	 width: 1000px;
+	 width: 700px;
 	 height: 300px;
 	 margin: 50px auto;
 	 padding-top: 75px;
 	 background: tan;
      position: relative;
-     top: -300px;
+     top: -100px;
 }
 
 .appdescription {
     text-align: center;
 	 color: #fff;
-     font-size: 2em;
+     font-size: 25px;
     position: relative;
     top: -70px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -99,6 +105,58 @@
     position: relative;
     top: -70px;
     font-family: 'Source Code Pro', monospace;
+}
+
+.item_us {
+    width: 700px;
+	 height: 100px;
+	 margin: 50px auto;
+	 padding-top: 75px;
+	 background:lightsteelblue;
+     position: relative;
+     top: -100px;
+}
+.us_description {
+    width: 1000px;
+	 height: 300px;
+	 margin: 50px auto;
+	 padding-top: 75px;
+	 background: lightsteelblue;
+     position: relative;
+     top: -100px;
+}
+
+img {
+    border-radius: 50%;
+    width: 300px; /* width of container */
+    height: 300px; /* height of container */
+    object-fit: fill;
+    position: relative;
+}
+.Alex {
+    top: -250px;
+}
+.Arash {
+    top: -250px;
+    right: -100px;
+}
+.Tanav {
+    top: -250px;
+    right: -50px;
+}
+.Signup {
+    top:-400px;
+    right: 50px;
+}
+.Meeting {
+    top: -400px;
+    right: -75px;
+}
+.Signin {
+    right: 100px;
+}
+.Guest {
+    right: -100px;
 }
 
             </style>
@@ -122,6 +180,38 @@
                                       ATAC. When your workload is managed on a daily basis, keeping in mind the deadlines and status of each task, more time is 
                                       spent on being coordinated and maximizing productivity. Later is the best friend of clutter, ATAC now.   </p>
         </div>
+        <div class="circle">
+            <div data-aos="flip-left">
+            <img class = "Signup" src="static/css/Signup.png" alt="Register">
+            <img class = "Signin" src="static/css/Signin.png" alt="Login">
+            <img class = "Guest" src="static/css/Guest.png" alt="Guest">
+            <img class = "Meeting" src="static/css/Meeting.png" alt="Meeting">
+            </div>
+        </div>
+    </section>
+    <section class="us">
+        <div class="item_us" data-aos="fade-left">
+            <p class="aboutapp">About Us!</p>
+        </div>
+        <script>  
+            AOS.init({
+      duration: 1500,
+    })
+    </script>
+    <div class="us_description" data-aos="zoom-out">
+        <p class="appdescription">Hello! You might have noticed that our application is called ATAC (don't worry it's not a typo). The story 
+            behind the name of our app is that it is the intial of our names, the founders, who are Alex, Tanav, Arash, and Charles. We are all 
+            San Jose State University students attempting to create a scheduling app for our CMPE 131 class. Hope you enjoy our app!
+        </p>
+    </div><div data-aos="flip-left"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000">
+    <div class="circle">
+    <img class = "Alex" src="static/css/Alex.jpg" alt="Alex">
+    <img class = "Tanav" src="static/css/Tanav.jpg" alt="Tanav">
+    <img class = "Arash" src="static/css/Arash.png" alt="Arash">
+    </div>
+</div>
     </section>
 </main>
 </body>

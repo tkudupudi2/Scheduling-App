@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
-   
+   <div class="hero">
     <div align = "center">  
         <h1> Nice! You have Successfully Signed In.</h1>
 	</div>
@@ -18,14 +18,15 @@
                 position: relative;
                 font-size: 40px;
                 font-family: 'Source Code Pro', monospace;
-                top: 50px;
+                top: -170px;
 			}
 			h2 {
 				position: relative;
-				font-size: 30px;
+				font-size: 25px;
 				font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-				right: -200px;
-				top: 80px;
+				right: 00px;
+				top: -100px;
+				text-align: center;
 			}
             form {
                 position: relative;
@@ -43,9 +44,15 @@
 			table {
 				text-align: center;
 				position: relative;
-				right: -200px;
-				top: 80px;
+				right: -135px;
+				top: 0px;
 			}
+			.hero {
+                    padding: 22em 6em;
+                    background-color: lime;
+                    position: relative;
+                    top: -213px;
+                }
 	</style>
 	<table style='width: 80%'>
 		<tr>
@@ -58,23 +65,24 @@
 		<tr>
 			<td> Sample Date </td>
 			<td> Sample Booking </td>
-			<td> John Doe </td>
-			<td> Class Registration </td>
+			<td> Sample Name </td>
+			<td> Sample Description </td>
 		</tr>
 
 		<tr>
-			<td> 5/2/2020 </td>
-			<td> 9:15 - 9:30 AM </td>
-			<td> Barry Allen </td>
-			<td> Career Fair</td>
+			<td> 5/9/2020 </td>
+			<td> 9:00 - 9:30 AM </td>
+			<td> Carlos Rojas </td>
+			<td> Career Fair </td>
 		</tr>
 
 		<tr>
-			<td> 5/3/2020 </td>
-			<td> 11:00 - 12:00 PM </td>
-			<td> Oliver Queen </td>
+			<td> 5/10/2020 </td>
+			<td> 2:00 - 3:00 PM </td>
+			<td> Mary Papazian </td>
 			<td> Office Hours </td>
 		</tr>
 	</table>
+</div>
 </main> 
 {% endblock %}

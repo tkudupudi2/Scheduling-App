@@ -2,8 +2,52 @@
 {% block content %}
 <body>
 <main>
+    <div class="hero">
     <div align='center'>
         <h1>See and schedule an appointment</h1>
+        <style>
+            table, th, td {
+                  border: 1px solid black;
+                  border-collapse: collapse;
+            }
+            @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+                h1 {
+                    position: relative;
+                    font-size: 40px;
+                    font-family: 'Source Code Pro', monospace;
+                    top: -100px;
+                }
+                td {
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    font-size: 20px;
+                }
+                th {
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    font-size: 20px;
+                    text-align: center;
+                }
+                table {
+                    text-align: center;
+                    position: relative;
+                    right: 00px;
+                    top: 0px;
+                }
+                td {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 20px;
+			}
+			th {
+				font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+				font-size: 20px;
+				text-align: center;
+			}
+                .hero {
+                    padding: 22em 6em;
+                    background-color: orange;
+                    position: relative;
+                    top: -213px;
+                }
+        </style>
        
             <title>Search Results for appointments</title>
             {{ table }}
@@ -19,6 +63,7 @@
                     {% endif %}
                 {% endwith %}
             </p> -->
+    </div>
     </div>
 </body>
 </main>
