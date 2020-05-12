@@ -4,7 +4,7 @@
 <main>
     <div class="hero">
     <div align='center'>
-        <h1>See and schedule an appointment</h1>
+        <h1>See and schedule an appointment!</h1>
         <style>
             table, th, td {
                   border: 1px solid black;
@@ -17,6 +17,26 @@
                     font-family: 'Source Code Pro', monospace;
                     top: -100px;
                 }
+                h1 {
+                    animation: animated-text 4s steps(29,end) 1s 1 normal both,
+                    animated-cursor 600ms steps(29,end) infinite;
+                    border-right: solid 3px black;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    color: black;
+                    margin: 0 auto;
+                    }
+                @keyframes animated-text{
+                    from{width: 0;}
+                    to{width: 770px;}
+                    }
+
+                /* cursor animations */
+
+                @keyframes animated-cursor{
+                    from{border-right-color: black;}
+                    to{border-right-color: transparent;}
+                    }
                 td {
                     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                     font-size: 20px;

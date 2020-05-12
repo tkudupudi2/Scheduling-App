@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
-    
+    <div class="hero">
 	<div align = "center"> 
         <style>
             @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
@@ -9,15 +9,41 @@
                 position: relative;
                 font-size: 40px;
                 font-family: 'Source Code Pro', monospace;
-                top: 50px;
+                top: -170px;
             }
+            h1 {
+                    animation: animated-text 4s steps(29,end) 1s 1 normal both,
+                    animated-cursor 600ms steps(29,end) infinite;
+                    border-right: solid 3px black;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    color: black;
+                    margin: 0 auto;
+                    }
+                @keyframes animated-text{
+                    from{width: 0;}
+                    to{width: 200px;}
+                    }
+
+                /* cursor animations */
+
+                @keyframes animated-cursor{
+                    from{border-right-color: black;}
+                    to{border-right-color: transparent;}
+                    }
             form {
                 position: relative;
-                top: 100px;
+                top: -100px;
             }
             p {
                 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                 font-size: medium;
+            }
+            .hero {
+                padding: 22em 6em;
+                    background-color: rgb(148, 237, 243);
+                    position: relative;
+                    top: -213px;
             }
         </style> 
         <h1> Settings </h1>	
@@ -70,6 +96,7 @@
             </p>
 
          </form>
+    </div>
     </div>
 </main>
 {% endblock %}
