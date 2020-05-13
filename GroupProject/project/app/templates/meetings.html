@@ -20,6 +20,26 @@
                 font-family: 'Source Code Pro', monospace;
                 top: -170px;
 			}
+			h1 {
+                    animation: animated-text 4s steps(29,end) 1s 1 normal both,
+                    animated-cursor 600ms steps(29,end) infinite;
+                    border-right: solid 3px black;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    color: black;
+                    margin: 0 auto;
+                    }
+                @keyframes animated-text{
+                    from{width: 0;}
+                    to{width: 910px;}
+                    }
+
+                /* cursor animations */
+
+                @keyframes animated-cursor{
+                    from{border-right-color: black;}
+                    to{border-right-color: transparent;}
+                    }
 			h2 {
 				position: relative;
 				font-size: 25px;

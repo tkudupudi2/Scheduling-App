@@ -4,27 +4,11 @@ from app.models import User, Post, Results
 from app import apps, db
 from flask_login import login_required, current_user, logout_user, login_user, UserMixin
 
-posts = [
-    {
-        'author': 'Barry Allen',
-        'title': 'First Event',
-        'content': 'First description of event',
-        'date_posted': 'April 16, 2020'
-    },
-    {
-        'author': 'Oliver Queen',
-        'title': 'Second Event',
-        'content': 'Second description of event',
-        'date_posted': 'April 17, 2020'
-    }
-
-]
-
 '''This will redirect you to the route directory which is also the homepage of the application'''
 @apps.route("/")
 @apps.route("/home")
 def home():
-    return render_template('home.html', posts=posts)
+    return render_template('home.html')
 
 '''This will redirect you to the register page where a new user can register'''
 @apps.route("/register", methods=['GET', 'POST'])
