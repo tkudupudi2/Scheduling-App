@@ -1,14 +1,61 @@
 from flask import render_template, url_for, flash, redirect, request
-from app.forms import RegistrationForm, LoginForm, LogoutForm, GuestForm, DeleteAccountForm, SettingsForm
+from app.forms import RegistrationForm, LoginForm, LogoutForm, GuestForm, DeleteAccountForm, SettingsForm, MeetingForm
 from app.models import User, Post, Results
 from app import apps, db
 from flask_login import login_required, current_user, logout_user, login_user, UserMixin
+import calendar
+import datetime
+import re
+
+posts = [
+    {
+        'author': 'Barry Allen',
+        'title': 'First Event',
+        'content': 'First description of event',
+        'date_posted': 'April 16, 2020'
+    },
+    {
+        'author': 'Oliver Queen',
+        'title': 'Second Event',
+        'content': 'Second description of event',
+        'date_posted': 'April 17, 2020'
+    }
+
+]
+class ourCal(calendar.HTMLCalendar) :
+    def formatday(self, day, weekday) :
+        if day == 0 :
+            return ('<td class="noday">&nbsp;</td>')
+        else :
+            return ('<td class="%s"><a href="%s">%d</a></td>' % (self.cssclasses[weekday], day, day))
+        #return ((day == 0) if ( else ('<td class="%s"><a href="%s">%d</a></td>' % (self.cssclasses[weekday], weekday, day)))
+
+    def formatmonth(self, theyear, themonth, withyear=True):
+        v = []
+        a = v.append
+        a('<table border="14" cellpadding="14" cellspacing="14" class="%s">' % (
+            self.cssclasses[themonth]))
+        a('\n')
+        a(self.formatmonthname(theyear, themonth, withyear=withyear))
+        a('\n')
+        a(self.formatweekheader())
+        a('\n')
+        for week in self.monthdays2calendar(theyear, themonth):
+            a(self.formatweek(week))
+            a('\n')
+        a('</table>')
+        a('\n')
+        return ''.join(v)
+
+
+
+
 
 '''This will redirect you to the route directory which is also the homepage of the application'''
 @apps.route("/")
 @apps.route("/home")
 def home():
-    return render_template('home.html')
+    return render_template('home.html', posts=posts)
 
 '''This will redirect you to the register page where a new user can register'''
 @apps.route("/register", methods=['GET', 'POST'])
@@ -19,7 +66,6 @@ def register():
     Then it waits for validation from the submit button.
     """
     if current_user.is_authenticated:
-        flash("You are currently logged in")
         return redirect(url_for('login'))
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -41,7 +87,6 @@ def login():
     Then it waits for validation from the submit button.
     """
     if current_user.is_authenticated:
-        flash("User is authenticated")
         return redirect(url_for('meetings'))
     form = LoginForm()
     if form.validate_on_submit():
@@ -75,7 +120,6 @@ def settings():
         user.availability_start = settings_form.availability_start.data
         user.availability_end = settings_form.availability_end.data
         user.length = settings_form.length.data
-        user.entrydate = settings_form.entrydate.data
        # db.session.add(user) for new users
         db.session.commit()
         flash('availablity confirmed')
@@ -122,7 +166,11 @@ def logout():
 
 @apps.route('/<username>', methods=['GET', 'POST'])
 def guest(username):
-    user = User.query.filter_by(username=username).first()
+    user = User.query.filter_by(username=username).first_or_404()
+    current_schedule = ourCal().formatmonth(datetime.datetime.now().year, datetime.datetime.now().month)
+    #re.sub('<table border="10" cellpadding="12" cellspacing="3" class="month">', '<table border="0" cellpadding="0" cellspacing="0" class="month">', current_schedule)
+    #current_schedule = re.sub('<table border="0" cellpadding="0" cellspacing="0" class="month">','<table border="10" cellpadding="12" cellspacing="3" class="month">', current_schedule)
+    #current_schedule = re.sub('\d{1,2}</td>','\d{1,2}</td>', current_schedule),
     # if not user and username != "guest":
     #     return "User not found", 404
     # form = GuestForm()
@@ -131,11 +179,14 @@ def guest(username):
     #         flash("Available between: " + user.availability_start + " - " + user.availability_end)
     #     else:
     #         flash("No time available.")
-    results = []
-    results = db.session.query(User)
-    table = Results(results)
-    table.border = True
-    return render_template('guest.html', username=username, table=table)
+    form = MeetingForm()
+    if form.validate_on_submit():
+
+        results = []
+        results = db.session.query(User)
+        table = Results(results)
+        table.border = True
+    return render_template('user.html', form = form, username=username, schedule = (current_schedule))
     # form = form
 
 

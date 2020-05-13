@@ -3,6 +3,9 @@ from app import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_table import Table, Col, LinkCol
+import calendar
+import datetime
+
 
 #Creates a user database with id, username, email, and hashed password columns
 
@@ -13,10 +16,8 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(128), nullable=False)
     availability_start = db.Column(db.String(64))
     availability_end = db.Column(db.String(64))
-    entrydate = db.Column(db.String(64))
     length = db.Column(db.Integer)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
-   
     #the user is related to the post that they post
 
     def __repr__(self):
@@ -32,7 +33,7 @@ class User(db.Model, UserMixin):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(256))
-    timestamps = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    timestamps = db.Column(db.DateTime, index=True, default=datetime.datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
