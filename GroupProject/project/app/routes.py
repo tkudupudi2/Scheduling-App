@@ -75,6 +75,7 @@ def settings():
         user.availability_start = settings_form.availability_start.data
         user.availability_end = settings_form.availability_end.data
         user.length = settings_form.length.data
+        user.entrydate = settings_form.entrydate.data
        # db.session.add(user) for new users
         db.session.commit()
         flash('availablity confirmed')

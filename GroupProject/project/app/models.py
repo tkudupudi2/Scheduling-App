@@ -13,8 +13,10 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(128), nullable=False)
     availability_start = db.Column(db.String(64))
     availability_end = db.Column(db.String(64))
+    entrydate = db.Column(db.String(64))
     length = db.Column(db.Integer)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+   
     #the user is related to the post that they post
 
     def __repr__(self):

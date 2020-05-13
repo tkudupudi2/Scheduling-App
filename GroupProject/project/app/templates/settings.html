@@ -55,7 +55,13 @@
         </form>
         
         <form action="" method="POST" novalidate>
-           
+            
+            <input type="date" id="entrydate" name="entrydate">
+            <p>
+                {{settings_form.entrydate.label()}}
+                <!-- {{settings_form.entrydate}} -->
+            </p>
+            
             <p>
                 {{settings_form.availability_start.label()}}
                 {{settings_form.availability_start}}
