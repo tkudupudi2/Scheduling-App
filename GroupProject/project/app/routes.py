@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request
 from app.forms import RegistrationForm, LoginForm, LogoutForm, GuestForm, DeleteAccountForm, SettingsForm
-from app.models import User, Post, Results
+from app.models import User, Post, Results, Schedule
 from app import apps, db
 from flask_login import login_required, current_user, logout_user, login_user, UserMixin
 
@@ -62,7 +62,13 @@ def login():
 @apps.route('/meetings')
 @login_required
 def meetings():
-    return render_template('meetings.html')
+    user = User.query.filter_by(username=current_user.id).first()
+    user_schedule = Schedule(owner=user)
+    results = []
+    results = db.session.query(Schedule).filter_by(user_id=current_user.id)
+    table = Results(results)
+    table.border = True
+    return render_template('meetings.html',table=table)
 
 '''This will redirect you to a settings page for a logged in user where the user can choose their availability'''
 @apps.route('/settings', methods=['GET', 'POST'])
@@ -72,29 +78,14 @@ def settings():
     settings_form = SettingsForm()
     if request.method == 'POST':
         user = User.query.filter_by(id = current_user.id).first()
-        user.availability_start = settings_form.availability_start.data
-        user.availability_end = settings_form.availability_end.data
-        user.length = settings_form.length.data
-        user.entrydate = settings_form.entrydate.data
+        open_date = Schedule(owner=user)
+        open_date.availability_start = settings_form.availability_start.data
+        open_date.availability_end = settings_form.availability_end.data
+        open_date.length = settings_form.length.data
+        open_date.entrydate = settings_form.entrydate.data
        # db.session.add(user) for new users
         db.session.commit()
-        flash('availablity confirmed')
-    # email_confirmation = False
-    # user = User.query.filter_by(username=current_user.username).first()
-    # if request.method == 'POST':
-    #     user.availability_start = settings_form.availability_start.data
-    #     user.availability_end = settings_form.availability_end.data
-    #     user.length = int(settings_form.length.data)
-    #     db.session.commit()
-    #     flash("Your changes has been saved!")
-    # if user.availability_start:
-    #     settings_form.availability_start.data = user.availability_start
-    # if user.availability_end:
-    #     settings_form.availability_end.data = user.availability_end
-    # if user.length:
-    #     settings_form.length.data = str(user.length)
-    # else:
-    #     settings_form.length.data = '15'
+        flash('Availablity added')
     return render_template('settings.html', delete_account_form=delete_account_form, settings_form=settings_form)
     #email_confirmation=email_confirmation
 
@@ -119,33 +110,35 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-
+# guests will be able to see the users schedule
 @apps.route('/<username>', methods=['GET', 'POST'])
 def guest(username):
     user = User.query.filter_by(username=username).first()
-    # if not user and username != "guest":
-    #     return "User not found", 404
-    # form = GuestForm()
-    # if request.method == "POST":
-    #     if username != "guest" and user.availability_start:
-    #         flash("Available between: " + user.availability_start + " - " + user.availability_end)
-    #     else:
-    #         flash("No time available.")
+    user_schedule = Schedule(owner=user)
     results = []
-    results = db.session.query(User)
+    results = db.session.query(Schedule).filter_by(user_id=user.id)
     table = Results(results)
     table.border = True
     return render_template('guest.html', username=username, table=table)
     # form = form
 
 
-def save_changes(user, form):
-    """
-    Save the changes to the database
-    """
-    # Get data from form and assign it to the correct attributes
-    # of the SQLAlchemy table object
-    user = User()
-    user.availability_start = forms.availability_start.data
-    db_session.add(album)
-    db_session.commit()
+#for when guests click on the schedule
+@apps.route('/item/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    #user = User.query.filter_by(id=id).first()
+    
+    user = User.query.get(id)
+    user_schedule = Schedule(owner=user)
+    settings_form = SettingsForm()
+    results = []
+    results = db.session.query(Schedule).filter_by(id=id) 
+    table = Results(results)
+    table.border = True
+    if request.method == 'POST':
+        user_schedule.title = settings_form.title.data
+        user_schedule.notes = settings_form.notes.data
+        db.session.commit()
+        flash('Discription added')
+    return render_template('edit_schedule.html', id=id, table=table,
+                            settings_form=settings_form)

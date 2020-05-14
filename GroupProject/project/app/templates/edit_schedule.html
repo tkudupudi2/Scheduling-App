@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit_Schedule</title>
+</head>
+<body>
+    %}
+    <body>
+    <main>
+        <div class="hero">
+        <div align='center'>
+            <h1>Add discriptions for your schedule</h1>
+            <style>
+                table, th, td {
+                      border: 1px solid black;
+                      border-collapse: collapse;
+                }
+                @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+                    h1 {
+                        position: relative;
+                        font-size: 40px;
+                        font-family: 'Source Code Pro', monospace;
+                        top: -100px;
+                    }
+                    h1 {
+                        animation: animated-text 4s steps(29,end) 1s 1 normal both,
+                        animated-cursor 600ms steps(29,end) infinite;
+                        border-right: solid 3px black;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        color: black;
+                        margin: 0 auto;
+                        }
+                    @keyframes animated-text{
+                        from{width: 0;}
+                        to{width: 770px;}
+                        }
+    
+                    /* cursor animations */
+    
+                    @keyframes animated-cursor{
+                        from{border-right-color: black;}
+                        to{border-right-color: transparent;}
+                        }
+                    td {
+                        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                        font-size: 20px;
+                    }
+                    th {
+                        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                        font-size: 20px;
+                        text-align: center;
+                    }
+                    table {
+                        text-align: center;
+                        position: relative;
+                        right: 00px;
+                        top: 0px;
+                    }
+                    td {
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    font-size: 20px;
+                }
+                th {
+                    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    font-size: 20px;
+                    text-align: center;
+                }
+                    .hero {
+                        padding: 22em 6em;
+                        background-color: orange;
+                        position: relative;
+                        top: -213px;
+                    }
+            </style>
+            {{ table }}
+            <form action="" method="POST" novalidate>
+            <p>
+                {{settings_form.title.label()}}
+                {{settings_form.title}}
+            </p>
+
+            <p>
+                {{settings_form.notes.label()}}
+                {{settings_form.notes}}
+            </p>
+            <p>
+                {{settings_form.submit()}}
+           </p>
+           <p>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>
+                            {{ message }}
+                        </p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </p>
+           </form>
+</body>
+</html>
+{% endblock %}

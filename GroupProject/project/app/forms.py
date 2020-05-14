@@ -45,6 +45,8 @@ class SettingsForm(FlaskForm):
                                                                    ('7 PM','7 PM'),('8 PM','8 PM'),('9 PM','9 PM'),('10 PM','10 PM')])
     length = SelectField("Length:",choices=[("15",'15 min'), ('30','30 min'), ('60','60 min')])
     entrydate = StringField('Date available')
+    title = StringField('Title')
+    notes = StringField('Notes')
     submit = SubmitField('Save Changes')
     email_confirmation = BooleanField('Yes')
     email_rejection = BooleanField('No')
