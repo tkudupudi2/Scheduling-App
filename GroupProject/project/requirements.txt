@@ -19,7 +19,7 @@ keyrings.alt==3.0
 MarkupSafe==1.1.1
 packaging==20.3
 pycrypto==2.6.1
-Pygments==2.5.2
+Pygments==2.7.4
 pygobject==3.26.1
 pyparsing==2.4.7
 pytz==2019.3
