@@ -1,7 +1,7 @@
 alabaster==0.7.12
 asn1crypto==0.24.0
 Babel==2.8.0
-certifi==2020.4.5.1
+certifi==2022.12.7
 chardet==3.0.4
 click==7.1.1
 cryptography==2.1.4
